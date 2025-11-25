@@ -86,7 +86,7 @@ namespace ViewModel
             inserted.Add(new EntityState(c, (e, cmd) =>
             {
                 var x = (Continents)e;
-                cmd.CommandText = "INSERT INTO Continents (ContinentName) VALUES (?)";
+                cmd.CommandText = "INSERT INTO Continents (ContinentName) VALUES (@ContinentName)";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@ContinentName", x.ContinentName ?? "");
             }));
@@ -97,7 +97,7 @@ namespace ViewModel
             updated.Add(new EntityState(c, (e, cmd) =>
             {
                 var x = (Continents)e;
-                cmd.CommandText = "UPDATE Continents SET ContinentName=? WHERE id=?";
+                cmd.CommandText = "UPDATE Continents SET ContinentName=? WHERE id=@id";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@ContinentName", x.ContinentName ?? "");
                 cmd.Parameters.AddWithValue("@id", x.Id);
@@ -117,10 +117,13 @@ namespace ViewModel
         protected override BaseEntity CreateModel(BaseEntity entity)
         {
             var c = (Continents)entity;
+
             if (HasColumn("id") && !reader.IsDBNull(reader.GetOrdinal("id")))
                 c.Id = Convert.ToInt32(reader["id"]);
+
             if (HasColumn("ContinentName") && !reader.IsDBNull(reader.GetOrdinal("ContinentName")))
                 c.ContinentName = reader["ContinentName"].ToString();
+
             return c;
         }
     }

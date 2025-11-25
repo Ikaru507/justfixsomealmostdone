@@ -5,6 +5,7 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 //namespace ViewModel
 //{
@@ -100,12 +101,15 @@ namespace ViewModel
             inserted.Add(new EntityState(u, (e, cmd) =>
             {
                 var x = (UserDetails)e;
-                cmd.CommandText = "INSERT INTO UserDetails (UserName, Email, Password, LastLogin) VALUES (?,?,?,?)";
+                cmd.CommandText = "INSERT INTO UserDetails ([UserName], [Email], [Password], LastLogin) VALUES (?,?,?,@lDate)";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@UserName", x.UserName ?? "");
                 cmd.Parameters.AddWithValue("@Email", x.Email ?? "");
                 cmd.Parameters.AddWithValue("@Password", x.Password ?? "");
-                cmd.Parameters.AddWithValue("@LastLogin", x.LastLogin == DateTime.MinValue ? (object)DBNull.Value : x.LastLogin);
+                OleDbParameter newoledb = new OleDbParameter("@lDate", OleDbType.DBDate);
+                newoledb.Value = x.LastLogin;
+                command.Parameters.Add(newoledb);
+         //       cmd.Parameters.AddWithValue("@LastLogin", x.LastLogin == DateTime.MinValue ? (object)DBNull.Value : x.LastLogin);
             }));
         }
 
@@ -114,7 +118,7 @@ namespace ViewModel
             updated.Add(new EntityState(u, (e, cmd) =>
             {
                 var x = (UserDetails)e;
-                cmd.CommandText = "UPDATE UserDetails SET UserName=?, Email=?, Password=?, LastLogin=? WHERE id=?";
+                cmd.CommandText = "UPDATE UserDetails SET [UserName]=?, [Email]=?, [Password]=?, LastLogin=? WHERE id=?";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@UserName", x.UserName ?? "");
                 cmd.Parameters.AddWithValue("@Email", x.Email ?? "");
