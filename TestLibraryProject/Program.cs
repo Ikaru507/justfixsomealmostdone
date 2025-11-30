@@ -17,7 +17,7 @@ namespace TestLibraryProject
             foreach (var b in countrieslist)
                 Console.WriteLine($"{b.Id}: {b.CountryName}");
             var u = countrieslist[0];
-            u.CountryName += "spaceland";
+            u.CountryName += "ססססס";
             dbc.Update(u);
             var p = new Countries { CountryName = "davidland" };
             dbc.Insert(p);
@@ -57,9 +57,9 @@ namespace TestLibraryProject
             foreach (var h in Languageslist)
                 Console.WriteLine($"{h.Id}: {h.LanguageName}");
             var s = Languageslist[0];
-            s.LanguageName += "newandcoollang";
+            s.LanguageName += "xxxx";
             dbca.Update(s);
-            var w = new Languages { LanguageName = "talit" };
+            Languages w = new Languages { LanguageName = "yyyy" };
             dbca.Insert(w);
             var q = Languageslist[^1];
             dbca.Delete(q);

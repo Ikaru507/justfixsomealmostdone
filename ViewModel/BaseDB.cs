@@ -395,7 +395,7 @@ namespace ViewModel
 
             OleDbTransaction trans = connection.BeginTransaction();
             command.Transaction = trans;
-
+            
             try
             {
                 foreach (var e in inserted)
@@ -411,18 +411,18 @@ namespace ViewModel
                 {
                     command.Parameters.Clear();
                     e.CreateSql(e.Entity, command);
-                    int a = command.ExecuteNonQuery();
-                    UpdatedCount += a;
-                    total += a;
+                    int b = command.ExecuteNonQuery();
+                    UpdatedCount += b;
+                    total += b;
                 }
 
                 foreach (var e in deleted)
                 {
                     command.Parameters.Clear();
                     e.CreateSql(e.Entity, command);
-                    int a = command.ExecuteNonQuery();
-                    DeletedCount += a;
-                    total += a;
+                    int c = command.ExecuteNonQuery();
+                    DeletedCount += c;
+                    total += c;
                 }
 
                 trans.Commit();
