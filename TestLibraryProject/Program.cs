@@ -19,8 +19,8 @@ namespace TestLibraryProject
             var u = countrieslist[0];
             u.CountryName += "ססססס";
             dbc.Update(u);
-            var p = new Countries { CountryName = "davidland" };
-            dbc.Insert(p);
+            //var p = new Countries { CountryName = "davidland" };
+            //dbc.Insert(p);
             var o = countrieslist[^1];
             dbc.Delete(o);
             int total = dbc.SaveChanges();
@@ -39,8 +39,8 @@ namespace TestLibraryProject
             us.ContinentName += "lianyland";
             dbcas.Update(us);
             int total123 = dbcas.SaveChanges();
-            var pa = new Continents { ContinentName = "tulala" };
-            dbcas.Insert(pa);
+            //var pa = new Continents { ContinentName = "tulala" };
+            //dbcas.Insert(pa);
             var op = Continentslist[^1];
             dbcas.Delete(op);
             total123 = dbcas.SaveChanges();
@@ -59,8 +59,8 @@ namespace TestLibraryProject
             var s = Languageslist[0];
             s.LanguageName += "xxxx";
             dbca.Update(s);
-            Languages w = new Languages { LanguageName = "yyyy" };
-            dbca.Insert(w);
+            //Languages w = new Languages { LanguageName = "yyyy" };
+            //dbca.Insert(w);
             var q = Languageslist[^1];
             dbca.Delete(q);
             int totalre = dbca.SaveChanges();
@@ -80,8 +80,8 @@ namespace TestLibraryProject
             var up = dba.SelectAll()[0];
             up.CategoryName += "interstingcategory";
             dba.Update(up);
-            var ins = new Category { CategoryName = "NewCategotywowoww" , Description = "verycool"};
-            dba.Insert(ins);
+            //var ins = new Category { CategoryName = "NewCategotywowoww" , Description = "verycool"};
+            //dba.Insert(ins);
             var del = dba.SelectAll()[^1];
             dba.Delete(del);
             int t = dba.SaveChanges();
@@ -101,8 +101,8 @@ namespace TestLibraryProject
             var y = list[0];
             y.AttractionName += "mooooooooooo";
             db.Update(y);
-            var n = new Attractions { AttractionName = "ZiplineWOW" };
-            db.Insert(n);
+            //var n = new Attractions { AttractionName = "ZiplineWOW" };
+            //db.Insert(n);
             var d = list[^1];
             db.Delete(d);
             int total2 = db.SaveChanges();
@@ -119,8 +119,8 @@ namespace TestLibraryProject
             foreach (var u1 in lst1)
                 Console.WriteLine($"{u1.Id}: {u1.UserName}");
             UserDetails upa = dbe.SelectAll()[0];
-            var insa = new UserDetails { UserName = "TestUser", Email = "mail@test.com", Password = "1234", LastLogin = DateTime.Now };
-            dbe.Insert(insa);
+            //var insa = new UserDetails { UserName = "TestUser", Email = "mail@test.com", Password = "1234", LastLogin = DateTime.Now };
+            //dbe.Insert(insa);
             int ta = dbe.SaveChanges();
             upa.UserName += "ikaru";
             dbe.Update(upa);
@@ -143,8 +143,8 @@ namespace TestLibraryProject
             var ups = dbaas.SelectAll()[0];
             ups.WeatherName += "superrainy";
             dbaas.Update(ups);
-            var insas = new Weather { WeatherName = "supercold" };
-            dbaas.Insert(insas);
+            //var insas = new Weather { WeatherName = "supercold" };
+            //dbaas.Insert(insas);
             var deles = dbaas.SelectAll()[^1];
             dbaas.Delete(deles);
             int tat = dbaas.SaveChanges();
