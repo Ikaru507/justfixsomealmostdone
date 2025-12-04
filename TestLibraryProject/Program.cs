@@ -17,7 +17,7 @@ namespace TestLibraryProject
             foreach (var b in countrieslist)
                 Console.WriteLine($"{b.Id}: {b.CountryName}");
             var u = countrieslist[0];
-            u.CountryName += "ססססס";
+            u.CountryName += "סוססס";
             dbc.Update(u);
             //var p = new Countries { CountryName = "davidland" };
             //dbc.Insert(p);
