@@ -154,5 +154,12 @@ namespace ViewModel
 
             return a;
         }
+
+        public Attractions SelectById(int id)
+        {
+            var list = new AttractionsList(Select("SELECT * FROM Attractions" +
+                " WHERE id=?", new OleDbParameter("@id", id)));
+            return list.Count > 0 ? list[0] : null;
+        }
     }
 }

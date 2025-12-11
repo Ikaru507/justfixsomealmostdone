@@ -17,6 +17,34 @@ namespace MyProjectsAPI.Controllers
             CountriesList countriesList = countriesDB.SelectAll();
             return countriesList;
         }
+        [HttpPost]
+        public int InsertCountry([FromBody] Countries country)
+        {
+            CountriesDB countriesDB = new CountriesDB();
+            countriesDB.Insert(country);
+            int x = countriesDB.SaveChanges();
+            return x;
+
+        }
+
+        [HttpDelete("{id}")]
+        public int DeleteCountry(int id)
+        {
+            CountriesDB countriesDB = new CountriesDB();
+            Countries country = countriesDB.SelectById(id);
+            countriesDB.Delete(country);
+            int x = countriesDB.SaveChanges();
+            return x;
+        }
+
+        [HttpPut]
+        public void UpdateCountry([FromBody] Countries country)
+        {
+            CountriesDB countriesDB = new CountriesDB();
+            countriesDB.Update(country);
+            int x = countriesDB.SaveChanges();
+        }
+
 
         [HttpGet]
         [ActionName("ContinentsSelector")]
@@ -27,6 +55,33 @@ namespace MyProjectsAPI.Controllers
             ContinentsList continentsList = continentsDB.SelectAll();
             return continentsList;
         }
+        [HttpPost]
+        public int InsertContinent([FromBody] Continents Continent)
+        {
+            ContinentsDB continentsDB = new ContinentsDB();
+            continentsDB.Insert(Continent);
+            int x = continentsDB.SaveChanges();
+            return x;
+
+        }
+
+        [HttpDelete("{id}")]
+        public int DeleteContinent(int id)
+        {
+            ContinentsDB continentsDB = new ContinentsDB();
+            Continents continent = continentsDB.SelectById(id);
+            continentsDB.Delete(continent);
+            int x = continentsDB.SaveChanges();
+            return x;
+        }
+
+        [HttpPut]
+        public void UpdateContinent([FromBody] Continents continent)
+        {
+            ContinentsDB continentsDB = new ContinentsDB();
+            continentsDB.Update(continent);
+            int x = continentsDB.SaveChanges();
+        }
 
         [HttpGet]
         [ActionName("LanguagesSelector")]
@@ -36,6 +91,33 @@ namespace MyProjectsAPI.Controllers
             LanguagesDB languagesDB = new LanguagesDB();
             LanguagesList languagesList = languagesDB.SelectAll();
             return languagesList;
+        }
+        [HttpPost]
+        public int InsertLanguage([FromBody] Languages Language)
+        {
+            LanguagesDB languagesDB = new LanguagesDB();
+            languagesDB.Insert(Language);
+            int x = languagesDB.SaveChanges();
+            return x;
+
+        }
+
+        [HttpDelete("{id}")]
+        public int DeleteLanguages(int id)
+        {
+            LanguagesDB languagesDB = new LanguagesDB();
+            Languages Language = languagesDB.SelectById(id);
+            languagesDB.Delete(Language);
+            int x = languagesDB.SaveChanges();
+            return x;
+        }
+
+        [HttpPut]
+        public void UpdateLanguages([FromBody] Languages Language)
+        {
+            LanguagesDB languagesDB = new LanguagesDB();
+            languagesDB.Update(Language);
+            int x = languagesDB.SaveChanges();
         }
 
         [HttpGet]
@@ -48,6 +130,36 @@ namespace MyProjectsAPI.Controllers
             return weatherList;
         }
 
+        [HttpPost]
+        public int InsertWeather([FromBody] Weather weather)
+        {
+            WeatherDB weatherDB = new WeatherDB();
+            weatherDB.Insert(weather);
+            int x = weatherDB.SaveChanges();
+            return x;
+
+        }
+
+        [HttpDelete("{id}")]
+        public int DeleteWeather(int id)
+        {
+            WeatherDB weatherDB = new WeatherDB();
+            Weather weather = weatherDB.SelectById(id);
+            weatherDB.Delete(weather);
+            int x = weatherDB.SaveChanges();
+            return x;
+        }
+
+        [HttpPut]
+        public void UpdateWeather([FromBody] Weather weather)
+        {
+            WeatherDB weatherDB = new WeatherDB();
+            weatherDB.Update(weather);
+            int x = weatherDB.SaveChanges();
+        }
+
+
+
         [HttpGet]
         [ActionName("UserDetailsSelector")]
 
@@ -57,6 +169,36 @@ namespace MyProjectsAPI.Controllers
             UserDetailsList userDetailsList = userDetailsDB.SelectAll();
             return userDetailsList;
         }
+
+        [HttpPost]
+        public int InsertUserDetails([FromBody] UserDetails userDetails)
+        {
+            UserDetailsDB userDetailsDB = new UserDetailsDB();
+            userDetailsDB.Insert(userDetails);
+            int x = userDetailsDB.SaveChanges();
+            return x;
+
+        }
+
+        [HttpDelete("{id}")]
+        public int DeleteUserDetails(int id)
+        {
+            UserDetailsDB userDetailsDB = new UserDetailsDB();
+            UserDetails userDetails = userDetailsDB.SelectById(id);
+            userDetailsDB.Delete(userDetails);
+            int x = userDetailsDB.SaveChanges();
+            return x;
+        }
+
+        [HttpPut]
+        public void UpdateUserDetails([FromBody] UserDetails userDetails)
+        {
+            UserDetailsDB userDetailsDB = new UserDetailsDB();
+            userDetailsDB.Update(userDetails);
+            int x = userDetailsDB.SaveChanges();
+        }
+
+
 
         [HttpGet]
         [ActionName("CategorySelector")]
@@ -68,6 +210,36 @@ namespace MyProjectsAPI.Controllers
             return categoryList;
         }
 
+        [HttpPost]
+        public int InsertCategory([FromBody] Category category)
+        {
+            CategoryDB categoryDB = new CategoryDB();
+            categoryDB.Insert(category);
+            int x = categoryDB.SaveChanges();
+            return x;
+
+        }
+
+        [HttpDelete("{id}")]
+        public int DeleteCategory(int id)
+        {
+            CategoryDB categoryDB = new CategoryDB();
+            Category category = categoryDB.SelectById(id);
+            categoryDB.Delete(category);
+            int x = categoryDB.SaveChanges();
+            return x;
+        }
+
+        [HttpPut]
+        public void UpdateCategory([FromBody] Category category)
+        {
+            CategoryDB categoryDB = new CategoryDB();
+            categoryDB.Update(category);
+            int x = categoryDB.SaveChanges();
+        }
+
+
+
         [HttpGet]
         [ActionName("AttractionsSelector")]
 
@@ -77,11 +249,41 @@ namespace MyProjectsAPI.Controllers
             AttractionsList attractionsList = attractionsDB.SelectAll();
             return attractionsList;
         }
+
+        [HttpPost]
+        public int InsertAttractions([FromBody] Attractions attraction)
+        {
+            AttractionsDB attractionsDB = new AttractionsDB();
+            attractionsDB.Insert(attraction);
+            int x = attractionsDB.SaveChanges();
+            return x;
+
+        }
+
+        [HttpDelete("{id}")]
+        public int DeleteAttractions(int id)
+        {
+            AttractionsDB attractionsDB = new AttractionsDB();
+            Attractions attraction = attractionsDB.SelectById(id);
+            attractionsDB.Delete(attraction);
+            int x = attractionsDB.SaveChanges();
+            return x;
+        }
+
+        [HttpPut]
+        public void UpdateAttractions([FromBody] Attractions attraction)
+        {
+            AttractionsDB attractionsDB = new AttractionsDB();
+            attractionsDB.Update(attraction);
+            int x = attractionsDB.SaveChanges();
+        }
+
+
     }
-//    {
-//        public IActionResult Index()
-//        {
-//            return View();
-//        }
-//    }
+    //    {
+    //        public IActionResult Index()
+    //        {
+    //            return View();
+    //        }
+    //    }
 }
