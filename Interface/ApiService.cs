@@ -1,4 +1,4 @@
-﻿using Interface;
+﻿
 using Model;
 using Service;
 using System;
@@ -21,11 +21,12 @@ namespace Service
         public HttpClient client;
         public ApiService()
         {
-            uri = "https://localhost:7290";
+            uri = "http://localhost:5038";
             client = new HttpClient();
         }
         public async Task<CountriesList> GetAllCountries()
         {
+                                              
             return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");  
         }
 
