@@ -29,139 +29,167 @@ namespace Service
             return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");  
         }
 
-        public Task<int> InsertCountry(Countries country)
+        public async Task<int> DeleteCountry(int id)
         {
-            return (await client.DeleteAsync(uri + "/api/Select/DeleteCountry/" + id)).IsSuccessStatucCode ? 1 : 0;
+            return (await client.DeleteAsync(uri+ "/api/Select/DeleteCountry/"+ id)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<int> UpdateCountry(Countries country)
+        public async Task<int> UpdateCountry(Countries country)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.PutAsJsonAsync<Countries>(uri + "/api/Insert/UpdateCountry/", country)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<int> DeleteCountry(int id)
+        public async Task<int> InsertCountry(Countries country)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.PostAsJsonAsync<Countries>(uri + "/api/Insert/InsertCountry/", country)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<ContinentsList> GetAllContinents()
+
+
+
+        public async Task<ContinentsList> GetAllContinents()
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return await client.GetFromJsonAsync<ContinentsList>(uri + "/api/Select/ContinentsSelector");
         }
 
-        public Task<int> InsertContinent(Continents continent)
+        public async Task<int> DeleteContinent(int id)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.DeleteAsync(uri+ "/api/Select/DeleteContinent/"+ id)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<int> UpdateContinent(Continents continent)
+        public async Task<int> UpdateContinent(Continents Continent)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.PutAsJsonAsync<Continents>(uri + "/api/Insert/UpdateContinent/", Continent)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<int> DeleteContinent(int id)
+        public async Task<int> InsertContinent(Continents Continent)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.PostAsJsonAsync<Continents>(uri + "/api/Insert/InsertContinent/", Continent)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<LanguagesList> GetAllLanguages()
+
+
+
+
+        public async Task<LanguagesList> GetAllLanguages()
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return await client.GetFromJsonAsync<LanguagesList>(uri + "/api/Select/LanguagesSelector");
         }
 
-        public Task<int> InsertLanguage(Languages language)
+        public async Task<int> DeleteLanguage(int id)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.DeleteAsync(uri+ "/api/Select/DeleteLanguage/"+ id)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<int> UpdateLanguage(Languages language)
+        public async Task<int> UpdateLanguage(Languages Language)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.PutAsJsonAsync<Languages>(uri + "/api/Insert/UpdateLanguage/", Language)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<int> DeleteLanguage(int id)
+        public async Task<int> InsertLanguage(Languages Language)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.PostAsJsonAsync<Languages>(uri + "/api/Insert/InsertLanguage/", Language)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<WeatherList> GetAllWeather()
+
+
+
+
+
+        public async Task<WeatherList> GetAllWeather()
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return await client.GetFromJsonAsync<WeatherList>(uri + "/api/Select/LanguagesSelector");
         }
 
-        public Task<int> InsertWeather(Weather weather)
+        public async Task<int> DeleteWeather(int id)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.DeleteAsync(uri+ "/api/Select/DeleteWeather/"+ id)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<int> UpdateWeather(Weather weather)
+        public async Task<int> UpdateWeather(Weather weather)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.PutAsJsonAsync<Weather>(uri + "/api/Insert/UpdateWeather/", weather)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<int> DeleteWeather(int id)
+        public async Task<int> InsertWeather(Weather weather)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.PostAsJsonAsync<Weather>(uri + "/api/Insert/InsertWeather/", weather)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<UserDetailsList> GetAllUserDetails()
+
+
+
+
+
+        public async Task<UserDetailsList> GetAllUserDetails()
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return await client.GetFromJsonAsync<UserDetailsList>(uri + "/api/Select/UserDetailsSelector");
         }
 
-        public Task<int> InsertUserDetails(UserDetails userDetails)
+        public async Task<int> DeleteUserDetails(int id)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.DeleteAsync(uri+ "/api/Select/DeleteUserDetails/"+ id)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<int> UpdateUserDetails(UserDetails userDetails)
+        public async Task<int> UpdateUserDetails(UserDetails userDetails)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.PutAsJsonAsync<UserDetails>(uri + "/api/Insert/UpdateUserDetails/", userDetails)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<int> DeleteUserDetails(int id)
+        public async Task<int> InsertUserDetails(UserDetails userDetails)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.PostAsJsonAsync<UserDetails>(uri + "/api/Insert/InsertUserDetails/", userDetails)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<CategoryList> GetAllCategory()
+
+
+
+
+
+
+        public async Task<CategoryList> GetAllCategory()
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return await client.GetFromJsonAsync<CategoryList>(uri + "/api/Select/CategorySelector");
         }
 
-        public Task<int> InsertCategory(Category category)
+        public async Task<int> DeleteCategory(int id)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.DeleteAsync(uri+ "/api/Select/DeleteCategory/"+ id)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<int> UpdateCategory(Category category)
+        public async Task<int> UpdateCategory(Category category)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.PutAsJsonAsync<Category>(uri + "/api/Insert/UpdateCategory/", category)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<int> DeleteCategory(int id)
+        public async Task<int> InsertCategory(Category category)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.PostAsJsonAsync<Category>(uri + "/api/Insert/InsertCategory/", category)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<AttractionsList> GetAllAttractions()
+
+
+
+
+
+        public async Task<AttractionsList> GetAllAttractions()
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return await client.GetFromJsonAsync<AttractionsList>(uri + "/api/Select/AttractionsSelector");
         }
 
-        public Task<int> InsertAttraction(Attractions attraction)
+        public async Task<int> DeleteAttraction(int id)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.DeleteAsync(uri+ "/api/Select/DeleteAttraction/"+ id)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<int> UpdateAttraction(Attractions attraction)
+        public async Task<int> UpdateAttraction(Attractions Attraction)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.PutAsJsonAsync<Attractions>(uri + "/api/Insert/UpdateAttraction/", Attraction)).IsSuccessStatusCode ? 1 : 0;
         }
 
-        public Task<int> DeleteAttraction(int id)
+        public async Task<int> InsertAttraction(Attractions Attraction)
         {
-            return await client.GetFromJsonAsync<CountriesList>(uri + "/api/Select/CountriesSelector");
+            return (await client.PostAsJsonAsync<Attractions>(uri + "/api/Insert/InsertAttraction/", Attraction)).IsSuccessStatusCode ? 1 : 0;
         }
     }
 }
