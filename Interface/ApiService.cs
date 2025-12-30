@@ -32,7 +32,7 @@ namespace Service
 
         public async Task<int> DeleteCountry(int id)
         {
-            return (await client.DeleteAsync(uri+ "/api/Select/DeleteCountry/"+ id)).IsSuccessStatusCode ? 1 : 0;
+            return (await client.DeleteAsync(uri+ $"/api/Select/DeleteCountry/{ id}")).IsSuccessStatusCode ? 1 : 0;
         }
 
         public async Task<int> UpdateCountry(Countries country)
@@ -55,7 +55,7 @@ namespace Service
 
         public async Task<int> DeleteContinent(int id)
         {
-            return (await client.DeleteAsync(uri+ "/api/Select/DeleteContinent/"+ id)).IsSuccessStatusCode ? 1 : 0;
+            return (await client.DeleteAsync(uri+ $"/api/Select/DeleteContinent/{ id}")).IsSuccessStatusCode ? 1 : 0;
         }
 
         public async Task<int> UpdateContinent(Continents Continent)
