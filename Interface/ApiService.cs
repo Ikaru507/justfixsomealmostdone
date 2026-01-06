@@ -99,7 +99,7 @@ namespace Service
 
         public async Task<WeatherList> GetAllWeather()
         {
-            return await client.GetFromJsonAsync<WeatherList>(uri + "/api/Select/LanguagesSelector");
+            return await client.GetFromJsonAsync<WeatherList>(uri + "/api/Select/WeatherSelector");
         }
 
         public async Task<int> DeleteWeather(int id)
